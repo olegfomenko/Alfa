@@ -1,4 +1,4 @@
-package com.oleg.fomenko.AlfaBack;
+package com.oleg.fomenko.AlfaBack.entities;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
