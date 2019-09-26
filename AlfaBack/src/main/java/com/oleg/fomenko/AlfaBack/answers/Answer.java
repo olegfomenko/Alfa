@@ -1,7 +1,5 @@
 package com.oleg.fomenko.AlfaBack.answers;
 
-import com.sun.org.apache.bcel.internal.generic.ANEWARRAY;
-
 public class Answer {
     private int status;
     private String text;

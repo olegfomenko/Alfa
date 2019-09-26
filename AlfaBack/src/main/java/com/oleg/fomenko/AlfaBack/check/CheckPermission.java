@@ -12,6 +12,7 @@ public class CheckPermission {
 
     public boolean check(String userName, String userPassword) {
         User user = userDatabaseController.get(userName);
+        if(user == null) return false;
         return user.getUserPassword().equals(userPassword);
     }
 }
