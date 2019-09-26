@@ -4,3 +4,35 @@ body {
 	align-items: center;
 	justify-content: center;
 }
+
+input {
+	width: 250px;
+	height: 50px;
+
+	font-size: 20px;
+
+	margin: 5px;
+
+	font-family: Consolas;
+}
+
+button {
+	width: 120px;
+	height: 30px;
+
+	margin: 5px;
+
+	border-radius: 5px;
+
+	font-family: Consolas;
+}
+
+p {
+	font-size: 30px;
+	font-family: Consolas;
+}
+
+img {
+	height: 100px;
+	margin-bottom: 50px;
+}
