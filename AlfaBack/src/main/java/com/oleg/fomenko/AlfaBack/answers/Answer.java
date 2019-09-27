@@ -28,11 +28,11 @@ public class Answer {
         this.text = text;
     }
 
-    public static Answer getOkAnswer(String text) {
+    public static final Answer getOkAnswer(String text) {
         return new Answer(OK_ANSWER, text);
     }
 
-    public static Answer getWrongAnswer(String text) {
+    public static final Answer getWrongAnswer(String text) {
         return new Answer(WRONG_ANSWER, text);
     }
 }

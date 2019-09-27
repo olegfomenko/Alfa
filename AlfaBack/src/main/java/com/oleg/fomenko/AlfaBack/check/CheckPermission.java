@@ -4,8 +4,9 @@ import com.oleg.fomenko.AlfaBack.database.UserDatabaseController;
 import com.oleg.fomenko.AlfaBack.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
-@Controller
+@Service
 public class CheckPermission {
     @Autowired
     private UserDatabaseController userDatabaseController;
