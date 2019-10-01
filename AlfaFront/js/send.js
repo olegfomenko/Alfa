@@ -1,4 +1,4 @@
-function send(button) {
+async function send(button) {
 	var password = button.previousElementSibling;
 	var login = password.previousElementSibling;
 
@@ -8,34 +8,37 @@ function send(button) {
 	var answer = "Invalid login or password!";
 
 	if(check(log_val, pass_val)) {
-		answer = makeRequest(log_val, pass_val);
+		answer = await makeRequest(log_val, pass_val);
 	}
 
-	console.log(answer);
+	print(answer);
+}
 
+async function makeRequest(login, password) {
+	//password = md5(password);
+	//var body = "userName="  encodeURIComponent(login) + "&userPassword=" + encodeURIComponent(password);
+
+	let body = {
+		userName: login,
+		userPassword: password
+	}
+
+	let response = await fetch("http:/localhost:8080/login", {
+		method: "POST",
+		headers: {
+    		'Content-Type': 'application/json;charset=utf-8'
+  		},
+		body: JSON.stringify(body)
+	});
+
+	let answer = await response.json();
+	
+	return answer.text;
+}
+
+function print(answer) {
+	console.log(answer);
 	var text = document.getElementById("text");
 	if(text.firstChild != null) text.removeChild(text.firstChild);
 	text.append(document.createTextNode(answer));
-}
-
-function makeRequest(login, password) {
-	//password = md5(password);
-	var answer;
-	console.log(login + " " + password);
-
-	var request = new XMLHttpRequest();
-
-	request.onreadystatechange = function() {
-		if(request.readyState == 4) {
-			answer = JSON.parse(request.response).text;
-		}
-	};
-
-	var body = "userName=" + encodeURIComponent(login) + "&userPassword=" + encodeURIComponent(password);
-
-	request.open("POST", "http://localhost:8080/login", false);
-	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-	request.send(body);
-
-	return answer;
 }

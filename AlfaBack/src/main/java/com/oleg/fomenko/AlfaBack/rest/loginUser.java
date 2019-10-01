@@ -3,11 +3,9 @@ package com.oleg.fomenko.AlfaBack.rest;
 import com.oleg.fomenko.AlfaBack.answers.Answer;
 import com.oleg.fomenko.AlfaBack.check.CheckPermission;
 import com.oleg.fomenko.AlfaBack.database.UserDatabaseController;
+import com.oleg.fomenko.AlfaBack.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class loginUser {
@@ -19,9 +17,9 @@ public class loginUser {
 
     @CrossOrigin
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Answer login(String userName, String userPassword) {
-        System.out.println(userName + " " + userPassword);
-        if(checkPermission.check(userName, userPassword)) {
+    public Answer login(@RequestBody User user) {
+        System.out.println(user.getUserName() + " " + user.getUserPassword());
+        if(checkPermission.check(user.getUserName(), user.getUserPassword())) {
             return Answer.getOkAnswer("It's OK!");
         } else {
             return Answer.getWrongAnswer("Wrong login or password!");
