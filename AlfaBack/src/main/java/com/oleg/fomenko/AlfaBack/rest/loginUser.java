@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class loginUser {
+    /**База данных пользователей*/
     @Autowired
     private UserDatabaseController userDatabaseController;
 

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class addUser {
+
     @Autowired
     private UserDatabaseController userDatabaseController;
 
