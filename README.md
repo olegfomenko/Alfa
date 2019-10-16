@@ -1,4 +1,3 @@
-# Alfa
 # Test task from AlfaBank on REX IT Fest
 # 1 task
 You must create simple sign in page with it's backend for checking access by email+password.
